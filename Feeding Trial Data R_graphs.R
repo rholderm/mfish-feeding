@@ -1,4 +1,6 @@
-feeding<-read.csv("C:\\Users\\rhold\\Documents\\UCSC\\Palkovacs Lab Work\\R\\Feeding Trial Data CompleteR.csv")
+#practice
+
+feeding<-read.csv("C:\\Users\\rhold\\Documents\\UCSC\\Palkovacs Lab Work\\R\\Feeding Trial Data2_R.csv")
 
 feeding<-feeding[,-c(5,6,7,14,15,16,17,18)]
 feeding$trial_cue<-feeding$Trial.Cue..B.NB.
