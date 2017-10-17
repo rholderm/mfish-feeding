@@ -65,7 +65,7 @@ attach(bold.data4)
 head(bold.data4)
 str(bold.data4)
 
-env_factors<-read.csv("C:\\Users\\rhold\\Documents\\UCSC\\Palkovacs Lab Work\\R\\Environmental pond data for PCA_R.csv")
+env_factors4<-read.csv("C:\\Users\\rhold\\Documents\\UCSC\\Palkovacs Lab Work\\R\\Environmental pond data for PCA_R.csv")
 str(env_factors4)
 env_data4<-env_factors4[,-c(1,2,3,4,6,8,13,17)]
 env_data4$logzoops<-log(env_factors4$total_zoops_plus_1)

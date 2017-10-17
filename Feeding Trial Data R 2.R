@@ -53,6 +53,7 @@ feed.data2$Copepods<- feed.data2$Calanoid + feed.data2$Copepod + feed.data2$Cycl
 feed.data2$Insects<-feed.data2$Insect + feed.data2$`Insect?` + feed.data2$`Unk. insect` + feed.data2$`Unk. Insect`
 
 feed.data3<-feed.data2[,-c(10,11,12,13,14,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31)]
+feed.data3$total_prey<-feed.data2$Unk.Invert+feed.data2$Zoops+feed.data2$Copepods+feed.data2$Insects
 
 library(lme4)
 library(car)
@@ -60,9 +61,12 @@ library(car)
 glm1<-glmer(Daphnia ~ trial_cue + rearing_cue + pred + Sex + (1| Population), data = feed.data3, family = poisson)
 Anova(glm1)
 
-glm2<-glmer(Daphnia ~ trial_cue * rearing_cue * pred + (1| Population), data = feed.data3, family = poisson)
+glm2<-glmer(total_prey ~ trial_cue + rearing_cue + pred + Sex + rearing_cue*pred + (1|Population), data=feed.data3, family = poisson)
 Anova(glm2)
 
+
+str(feed.data3)
+hist(log(feed.data3$prey))
 ###Fit Model with dredge
 
 library(MuMIn)
